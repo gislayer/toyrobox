@@ -57,7 +57,6 @@
   background:#BFBFBF;
   padding: 0;
   margin: 0;
-  height: 130px;
   border : 1px solid #333;
   display: flex;
   align-items: center;
@@ -67,7 +66,6 @@
   background:#8d8d8d;
   padding: 0;
   margin: 0;
-  height: 130px;
   border : 1px solid #333;
   display: flex;
   align-items: center;
@@ -77,7 +75,6 @@
   background: url(../public/images/bgImages/wall.png) repeat top left fixed;
   padding: 0;
   margin: 0;
-  height: 130px;
   border : 1px solid #333;
   display: flex;
   align-items: center;

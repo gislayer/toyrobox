@@ -10,6 +10,7 @@ class Command extends Component {
     runCommand(dispatch,e){
         debugger;
         dispatch({type:'RUN_COMMAND',payload:this.state.command});
+        this.setState({command:''});
     }
 
     handleKeyPress(dispatch,e){
