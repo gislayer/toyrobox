@@ -147,9 +147,9 @@ export class Robot {
         //debugger;
         var rightToLeft = ["NORTH","EAST","SOUTH","WEST"];
         var leftToRight = ["NORTH","WEST","SOUTH","EAST"];
-        var currentIndex = direction==='LEFT'?leftToRight.indexOf(this.facing):rightToLeft.indexOf(this.facing);
+        var currentIndex = direction.command==='LEFT'?leftToRight.indexOf(this.facing):rightToLeft.indexOf(this.facing);
         var nextIndex = (currentIndex+1)%4;
-        var newFacing = direction==='LEFT'?leftToRight[nextIndex]:rightToLeft[nextIndex];
+        var newFacing = direction.command==='LEFT'?leftToRight[nextIndex]:rightToLeft[nextIndex];
         this.setFacing(newFacing);
     }
 }
@@ -400,6 +400,12 @@ export class Game {
             }
             case 'PLACE_WALL':{
                 const detail = this.getDetailFromText(commandText.command+','+commandText.task);
+                const robotPosition = this.robot.getInfo();
+                if(robotPosition.x===detail.rowNum && robotPosition.y===detail.colNum){
+                    this.addMessage(text);
+                    this.addWarning("There is robot in the place, you can't place wall there");
+                    return false; 
+                }
                 if(detail!==false){
                     var result1 = this.runPlaceWall(detail.rowNum,detail.colNum);
                     if(result1===false){
@@ -413,6 +419,7 @@ export class Game {
                     this.addMessage(text);
                     return false;
                 }
+                
                 break;
             }
             case 'REPORT':{
