@@ -2,16 +2,23 @@
 # ToyRoBox - Toy Robot Game
 
 This game was created for Mott MacDonald : 
+
 Demo URL : [ToyRoBox](https://stalwart-begonia-743d9d.netlify.app/)
+
 GitHub URL : https://github.com/gislayer/toyrobox
+
 Developer : [Ali Kilic](https://www.alikilic.org/)
 
 ## Game Commands
 ### PLACE_ROBOT ROW,COL,FACING
 This command places a robot at a given coordinate with an initial Facing direction.
+
 Rows : Between 1 and 5
+
 Cols : Between 1 and 5 
+
 Facing : NORT, EAST, WEST, SOUTH
+
 Sample Command : *PLACE_ROBOT 1,1,NORTH*
 
 ![PLACE_ROBOT](https://iili.io/WMFldG.png)
@@ -19,11 +26,17 @@ Sample Command : *PLACE_ROBOT 1,1,NORTH*
 ---
 ### PLACE_WALL ROW,COL
 This command places a wall at the given coordinate.
+
 Rows : Between 1 and 5
+
 Cols : Between 1 and 5 
+
 Sample Commands : 
+
 PLACE_WALL 3,2
+
 PLACE_WALL 1,3
+
 PLACE_WALL 5,4
 
 ![PLACE_WALL](https://iili.io/WMKe6X.png)
@@ -32,9 +45,13 @@ PLACE_WALL 5,4
 ### MOVE
 The MOVE command moves the robot 1 space forward in the direction it is currently facing.
 if you want to go 4,1 position you need to enter MOVE command 3 Times or you can push to MOVE button
+
 Sample Commands: 
+
 MOVE
+
 MOVE
+
 MOVE 
 
 ![MOVE](https://iili.io/WMftsI.png)
@@ -43,6 +60,7 @@ MOVE
 
 ### LEFT/RIGHT
 The turn commands LEFT and RIGHT, turns the robot 90 degrees to its current left or right. You can use text input or LEFT/RIGHT buttons
+
 Sample Commands: RIGHT
 
 ![LEFT/RIGHT](https://iili.io/WMqKsS.png)
@@ -52,8 +70,11 @@ Sample Commands: RIGHT
 ### REPORT
 The game prints out the current location and facing direction of the robot.
 You can use text input or REPORT button
+
 Sample Commands: 
+
 MOVE
+
 REPORT
 
 ![REPORT](https://iili.io/WMqqq7.png)
@@ -72,9 +93,13 @@ REPORT
 
 ## Project Information
 Start Date : 6 May 2022 22:30
+
 End Date : 8 May 2022 01:30
+
 JS Library : React JS
+
 CSS Library : Bootstrap
+
 Developer : Ali KILIC
 
 ## NodeJS Commands
