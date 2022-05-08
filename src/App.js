@@ -23,7 +23,7 @@ class App extends Component {
                 <div className='col-md-12'>
                   <Control/>
                 </div>
-                <div className='col-md-12'>
+                <div className='col-md-12 scrollbar style-3'>
                   <History/>
                 </div>
               </div>

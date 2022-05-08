@@ -13,13 +13,14 @@ import GeneralConsumer from '../context';
                 (value) => {
                     debugger;
                     var height = (window.screen.availHeight-240)+'px';
+                    var messages = JSON.parse(JSON.stringify(value.game.messages));
                     return(<div style={{height:height}} className="br5 p10 bg2">{
-                      value.messages.map((message,index)=>{
+                      messages.reverse().map((message,index)=>{
                         if(message.status===true){
                             return(
                                 <div key={index} className="alert alert-success d-flex align-items-center" role="alert">
                                   <div>
-                                      {message.text}
+                                      {message.num}.{message.type}: {message.text}
                                   </div>
                                 </div>
                             );
@@ -27,7 +28,7 @@ import GeneralConsumer from '../context';
                             return(
                                 <div key={index} className="alert alert-warning d-flex align-items-center" role="alert">
                                   <div>
-                                  {message.text}
+                                  {message.num}.{message.type}: {message.text}
                                   </div>
                                 </div>
                             );
