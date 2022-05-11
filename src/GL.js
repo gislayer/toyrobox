@@ -253,7 +253,7 @@ export class Game {
             this.robot.setPosition(rowNum,colNum);
             this.robot.setFacing(facing);
             this.boxes = this.createBoxes(this.board.width,this.board.height);
-            this.sounds.PLACE_ROBOT.play();
+            //this.sounds.PLACE_ROBOT.play();
             return this.boxes;
         }else{
             return false;
@@ -267,7 +267,7 @@ export class Game {
         if(status===false){
             return false;
         }else{
-            this.sounds.WALL.play();
+            //this.sounds.WALL.play();
             return true;
         }
     }
@@ -302,7 +302,7 @@ export class Game {
             if(this.board.isEmpty(abs.x,abs.y)){
                 this.robot.setPosition(x,y);
                 this.boxes = this.createBoxes(this.board.width,this.board.height);
-                this.sounds.MOVE.play();
+                //this.sounds.MOVE.play();
                 return this.boxes;
             }else{
                 this.sounds.FORBIDEN.play()
@@ -372,7 +372,7 @@ export class Game {
     command(text) {
         //debugger;
         if(text===""){
-            this.sounds.EMPTY.play();
+            //this.sounds.EMPTY.play();
             return false;
         }
         text=text.toUpperCase();
@@ -452,7 +452,7 @@ export class Game {
                 }
                 this.robot.turn(commandText);
                 this.boxUpdate();
-                this.sounds.LEFT.play();
+                //this.sounds.LEFT.play();
                 this.addMessage(text);
                 break;
             }
@@ -463,7 +463,7 @@ export class Game {
                 }
                 this.robot.turn(commandText);
                 this.boxUpdate();
-                this.sounds.LEFT.play();
+                //this.sounds.LEFT.play();
                 this.addMessage(text);
                 break;
             }

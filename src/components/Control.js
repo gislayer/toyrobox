@@ -21,6 +21,9 @@ export default class Control extends Component {
                 dispatch({type:'RUN_COMMAND',payload:'REPORT'});
                 break;
             }
+            default:{
+                break;
+            }
         }
         
     }
@@ -29,6 +32,12 @@ export default class Control extends Component {
       <GeneralConsumer>
             {
                 (value) => {
+                    if(value===undefined){
+                        return <div>Loading...</div>
+                    }
+                    if(value.dispatch===undefined){
+                        return <div>Loading...</div>
+                    }
                     const {dispatch} = value;
                     return(
                         <div className="br5 p0 bg2 mb10 ">

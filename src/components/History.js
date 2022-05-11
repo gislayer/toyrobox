@@ -14,7 +14,7 @@ import GeneralConsumer from '../context';
                     debugger;
                     var height = (window.screen.availHeight-240)+'px';
                     var messages = JSON.parse(JSON.stringify(value.game.messages));
-                    return(<div style={{height:height}} className="br5 p10 bg2">{
+                    return(<div data-testid="history" style={{height:height}} className="br5 p10 bg2">{
                       messages.reverse().map((message,index)=>{
                         if(message.status===true){
                             return(
