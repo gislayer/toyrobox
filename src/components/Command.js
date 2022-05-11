@@ -35,7 +35,7 @@ class Command extends Component {
                     return(
                         <div className="input-group mb-3">
                         <input autoFocus type="text" value={this.state.command} onKeyDown={this.handleKeyPress.bind(this,dispatch)} onChange={(e) => {this.setName(e.target.value);}}className="form-control" placeholder="Write Game Command Text" aria-describedby="button-addon2"/>
-                        <button onClick={this.runCommand.bind(this,dispatch)} className="btn btn-dark btn-outline-warning" type="button" id="button-addon2">Run</button>
+                        <button data-testid="Run Button" onClick={this.runCommand.bind(this,dispatch)} className="btn btn-dark btn-outline-warning" type="button" id="button-addon2">Run</button>
                         </div>
                     );
                 }  

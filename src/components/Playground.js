@@ -20,15 +20,15 @@ export default class Playground extends Component {
                       return(
                           <div className="cols">
                               {
-                                  boxes.map((box)=>{
+                                  boxes.map((box,i)=>{
                                     var boxName = (box.x+box.y)%2===1?'box1':'box2';
                                     if(box.robot===false && box.wall===false){
-                                        return(<div style={{width:boxWidth,height:boxHeight}} className={boxName}>{box.x}-{box.y}</div>)
+                                        return(<div data-testid="gamebox" key={i} style={{width:boxWidth,height:boxHeight}} className={boxName}>{box.x}-{box.y}</div>)
                                     }else{
                                         if(box.wall===true){
-                                            return(<div style={{width:boxWidth,height:boxHeight}} className='wallbox'></div>)
+                                            return(<div key={i} style={{width:boxWidth,height:boxHeight}} data-testid="wall" className='wallbox'></div>)
                                         }else{
-                                            return(<div style={{width:boxWidth,height:boxHeight}} className={boxName}><img height="100" alt="robot" src={box.facing}/></div>)
+                                            return(<div data-boxname={'Row-'+box.x+',Col-'+box.y} key={i} style={{width:boxWidth,height:boxHeight}} className={boxName}><img data-testid="robot" height="100" alt="robot" src={box.facing}/></div>)
                                         }
                                     }
                                   })
