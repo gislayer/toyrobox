@@ -1,5 +1,5 @@
 import React from 'react';
-import {getAllByAltText, render} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';  
 
@@ -7,7 +7,7 @@ import App from './App';
 import { GeneralProvider } from './context';
 
 test('All Components Rendered!',()=>{
-  const  { container,getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   expect(getByPlaceholderText('Write Game Command Text')).toBeInTheDocument();
   getByRole('button', {name: 'Run'});
   getByRole('button', {name: 'MOVE'});
@@ -19,7 +19,7 @@ test('All Components Rendered!',()=>{
 });
 
 test('PLACE_ROBOT Command works!',()=>{
-  const  { container,getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   const input = getByPlaceholderText('Write Game Command Text');
   userEvent.type(input,'PLACE_ROBOT 3,3,NORTH');
   const button = getByRole('button', {name: 'Run'});
@@ -28,7 +28,7 @@ test('PLACE_ROBOT Command works!',()=>{
 });
 
 test('PLACE_WALL Command works!',()=>{
-  const  { container,getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   const input = getByPlaceholderText('Write Game Command Text');
   userEvent.type(input,'PLACE_WALL 3,3');
   const button = getByRole('button', {name: 'Run'});
@@ -50,7 +50,7 @@ test('MOVE Command works!',()=>{
 });
 
 test('LEFT Command works!',()=>{
-  const  { container,getAllByTestId, getByPlaceholderText,getByRole,debug} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   const input = getByPlaceholderText('Write Game Command Text');
   userEvent.type(input,'PLACE_ROBOT 3,3,NORTH');
   const button = getByRole('button', {name: 'Run'});
@@ -62,7 +62,7 @@ test('LEFT Command works!',()=>{
 });
 
 test('RIGHT Command works!',()=>{
-  const  { container,getAllByTestId, getByPlaceholderText,getByRole,debug} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   const input = getByPlaceholderText('Write Game Command Text');
   userEvent.type(input,'PLACE_ROBOT 3,3,NORTH');
   const button = getByRole('button', {name: 'Run'});
@@ -100,7 +100,7 @@ test('TEST1 works! Result : 5,1,EAST',()=>{
 });
 
 test('TEST2 works! Result : 2,3,EAST',()=>{
-  const  { getAllByTestId, getByPlaceholderText,getByRole,debug} = render(<GeneralProvider><App/></GeneralProvider>);
+  const  { getAllByTestId, getByPlaceholderText,getByRole} = render(<GeneralProvider><App/></GeneralProvider>);
   const input = getByPlaceholderText('Write Game Command Text');
   const button = getByRole('button', {name: 'Run'});
   userEvent.type(input,'PLACE_ROBOT 2,2,WEST');
@@ -122,11 +122,3 @@ test('TEST2 works! Result : 2,3,EAST',()=>{
   expect(getAllByTestId('robot')[0]).toHaveAttribute('src','./images/assets/EAST.png');
   expect(getAllByTestId('robot')[0].parentElement.dataset.boxname).toEqual('Row-2,Col-3')
 });
-
-/*import App from './App';
-
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.get
-  expect(linkElement).toBeInTheDocument();
-});*/
