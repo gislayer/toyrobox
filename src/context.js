@@ -4,7 +4,6 @@ import {Game} from "./GL";
 const GeneralContext = React.createContext();
 
 const reducer = (state, action) => {
-    debugger;
     switch (action.type) {
         case 'RUN_COMMAND':{
             state.game.command(action.payload);

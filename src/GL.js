@@ -2,14 +2,12 @@
 
 export class Board{
     constructor(rowCount,colCount){
-        //debugger;
         this.width = rowCount;
         this.height = colCount;
         this.wallLocations = [];
     }
 
     isInTheArea(x,y){
-        //debugger;
         if((x < 1 || x > this.width) || ( y < 1 || y > this.height)){
             return false;
         }else{
@@ -18,7 +16,6 @@ export class Board{
     }
 
     isEmpty(x,y){
-        //debugger;
         var filter = this.wallLocations.filter(wall => wall[0] === x && wall[1] === y);
         if(filter.length === 0){
             return true;
@@ -28,7 +25,6 @@ export class Board{
     }
     
     addNewWall(rowNum,colNum){
-        //debugger;
         const x = rowNum;
         const y = colNum;
         if(this.isInTheArea(x,y)===false){
@@ -52,7 +48,6 @@ export class Robot {
     }
 
     setFacing(facing){
-        //debugger;
         facing = facing.toUpperCase();
         if(this.facings.indexOf(facing)!==-1){
             this.facing = facing;
@@ -144,7 +139,6 @@ export class Robot {
     }
 
     turn(direction){
-        //debugger;
         var rightToLeft = ["NORTH","EAST","SOUTH","WEST"];
         var leftToRight = ["NORTH","WEST","SOUTH","EAST"];
         var currentIndex = direction.command==='LEFT'?leftToRight.indexOf(this.facing):rightToLeft.indexOf(this.facing);
@@ -156,7 +150,6 @@ export class Robot {
 
 export class Game {
     constructor(rowCount,colCount){
-        //debugger;
         this.board = new Board(rowCount,colCount);
         this.robot = new Robot();
         this.commandList = ["PLACE_ROBOT","PLACE_WALL", "MOVE", "LEFT", "RIGHT", "REPORT"];
@@ -174,7 +167,6 @@ export class Game {
     }
 
     createBoxes(rowCount,colCount){
-        debugger;
         var boxes = [];
         var robotPosition = this.robot.getInfo();
         for(var j=1;j<=colCount;j++){
@@ -200,7 +192,6 @@ export class Game {
     }
 
     isValidCommand(text){
-        //debugger;
         const parts = text.split(" ");
         if(this.commandList.indexOf(parts[0].trim())===-1){
             return false;
@@ -215,7 +206,6 @@ export class Game {
     }
 
     getDetailFromText(text){
-        //debugger;
         const parts = text.split(",");
         if(parts.length>2){
             const rowNum = Number(parseInt(parts[1].trim(),10));
@@ -248,7 +238,6 @@ export class Game {
     }
 
     runPlaceRobot(rowNum,colNum,facing){
-        debugger;
         if(this.board.isInTheArea(rowNum,colNum) && this.board.isEmpty(rowNum,colNum)){
             this.robot.setPosition(rowNum,colNum);
             this.robot.setFacing(facing);
@@ -262,7 +251,6 @@ export class Game {
     }
 
     runPlaceWall(rowNum,colNum){
-        //debugger;
         const status = this.board.addNewWall(rowNum,colNum);
         if(status===false){
             return false;
@@ -370,7 +358,6 @@ export class Game {
     }
 
     command(text) {
-        //debugger;
         if(text===""){
             //this.sounds.EMPTY.play();
             return false;

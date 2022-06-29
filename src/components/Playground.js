@@ -7,7 +7,6 @@ export default class Playground extends Component {
         <GeneralConsumer>
               {
                   (value) => {
-                      debugger;
                       const {boxes} = value.game;
                       var screenWidth = window.screen.availWidth;
                       var boxHeight = 128;
@@ -16,7 +15,6 @@ export default class Playground extends Component {
                         boxWidth = parseInt((screenWidth-40)/value.game.board.width);
                         boxHeight = boxWidth;
                       }
-                      
                       return(
                           <div className="cols">
                               {

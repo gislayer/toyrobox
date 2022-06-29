@@ -8,13 +8,11 @@ class Command extends Component {
     }
 
     runCommand(dispatch,e){
-        debugger;
         dispatch({type:'RUN_COMMAND',payload:this.state.command});
         this.setState({command:''});
     }
 
     handleKeyPress(dispatch,e){
-        debugger
         if (e.key === 'Enter') {
             dispatch({type:'RUN_COMMAND',payload:this.state.command});
             this.setState({command:''});
@@ -30,7 +28,6 @@ class Command extends Component {
         <GeneralConsumer>
             {
                 (value) => {
-                    debugger;
                     const {dispatch} = value;
                     return(
                         <div className="input-group mb-3">

@@ -3,7 +3,6 @@ import GeneralConsumer from '../context';
 
 export default class Control extends Component {
     runCommand(dispatch,type,e){
-        debugger;
         switch(type){
             case 1:{
                 dispatch({type:'RUN_COMMAND',payload:'MOVE'});

@@ -2,16 +2,11 @@ import React, { Component } from 'react'
 import GeneralConsumer from '../context';
 
  class History extends Component {
-  render() {
-      debugger;
-   
+  render() {  
     return (
        <GeneralConsumer>
-
-           {
-            
+           {         
                 (value) => {
-                    debugger;
                     var height = (window.screen.availHeight-240)+'px';
                     var messages = JSON.parse(JSON.stringify(value.game.messages));
                     return(<div data-testid="history" style={{height:height}} className="br5 p10 bg2">{
@@ -35,11 +30,8 @@ import GeneralConsumer from '../context';
                         }
                     })
                       }</div>);
-                    
-                    
                 }  
             }
-
         </GeneralConsumer>
     )
   }
